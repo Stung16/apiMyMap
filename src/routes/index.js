@@ -38,7 +38,7 @@ router.get(
   authControler.LoginWithGoogleCallback
 );
 // mindmaps
-router.get("/api/mindmaps/:id",authMiddleware, mindmapControler.getMindmapById);
+router.get("/api/mindmaps/:id", mindmapControler.getMindmapById);
 router.get("/api/mindmaps", authMiddleware, mindmapControler.getAllMap);
 router.post("/api/mindmaps",authMiddleware, mindmapControler.createMindmap);
 router.patch("/api/mindmaps/:id",authMiddleware, mindmapControler.updateMap);
