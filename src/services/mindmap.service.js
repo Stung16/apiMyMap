@@ -5,7 +5,7 @@ const generateCode = require("../utils/generateCode");
 const { cloudinary } = require("../../src/utils/cloudinary");
 
 module.exports = {
-  handleGetAllMap: async ({ page, limit, id, status, favorite, q }) => {
+  handleGetAllMap: async ({ page, limit, id, statuss, favorite, q }) => {
     const response = {};
     const options = {
       order: [["created_at", "desc"]],
@@ -19,8 +19,8 @@ module.exports = {
       };
     }
 
-    if (status) {
-      options.where.status = status;
+    if (statuss) {
+      options.where.status = statuss;
     }
 
     if (favorite) {
@@ -415,5 +415,4 @@ module.exports = {
     }
     return response;
   },
-  
 };
