@@ -23,7 +23,7 @@ module.exports = {
   resgiter: async (req, res) => {
     const result = await handleResgiter(req.body);
     if (result?.error === 0) {
-      return successRespone(res, 200, "Success", result, {});
+      return successRespone(res, result.status, "Success", '', {});
     } else {
       return errorRespone(res, result.status, result.message, {});
     }
@@ -43,7 +43,7 @@ module.exports = {
   refeshToken: async (req, res) => {
     const result = await handleRefeshToken(req.body);
     if (result?.error === 0) {
-      return successRespone(res, 200, "Success", result, {});
+      return successRespone(res, result.status, "Success", result, {});
     } else {
       return errorRespone(res, result.status, result.message, {});
     }

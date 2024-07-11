@@ -111,6 +111,7 @@ module.exports = {
         });
         Object.assign(response, {
           success: "đăng ký thành công",
+          status: 201,
           error: 0,
         });
       }
@@ -200,8 +201,9 @@ module.exports = {
     const response = {};
     if (!refreshToken) {
       Object.assign(response, {
-        status: 400,
+        status: 401,
         message: "Unauthorizedd",
+        error: 1,
       });
     } else {
       try {
@@ -210,7 +212,7 @@ module.exports = {
         });
         if (!exitToken) {
           return Object.assign(response, {
-            status: 400,
+            status: 404,
             message: "Bad request",
             error: 1,
           });
@@ -224,13 +226,14 @@ module.exports = {
           }
         );
         Object.assign(response, {
-          access_token: accessToken,
-          refresh_token: refreshToken,
+          accessToken: accessToken,
+          refreshToken: refreshToken,
+          status: 200,
           error: 0,
         });
       } catch (error) {
         Object.assign(response, {
-          status: 400,
+          status: 500,
           message: "Unauthorized",
           error: 1,
         });
