@@ -6,7 +6,7 @@ const GooglePassport = new Strategy(
     clientSecret: process.env.CLIENT_SECRET_GOOGLE,
     callbackURL: process.env.SERVER_API,
     passReqToCallback: true,
-    scope: ["profile"],
+    scope: ["profile","email"],
   },
   async (request, accessToken, refreshToken, profile, cb) => {
     const dataSave = {
