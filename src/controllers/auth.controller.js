@@ -20,6 +20,7 @@ module.exports = {
       return errorRespone(res, result.status, result.message, {});
     }
   },
+  
   resgiter: async (req, res) => {
     const result = await handleResgiter(req.body);
     if (result?.error === 0) {
